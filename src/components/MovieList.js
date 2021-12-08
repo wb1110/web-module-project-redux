@@ -4,8 +4,9 @@ import MovieListItem from './MovieListItem';
 import MovieFooter from './MovieFooter';
 
 const mapStateToProps = state => {
+    console.log(state)
     return {
-        movies: state.movies
+        movies: state.movieReducer.movies
     }
 }
 

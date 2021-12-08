@@ -1,16 +1,13 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { addMovie } from '../actions/movieActions';
+// import { addMovie } from '../actions/movieActions';
+// import {displayFavorites} from '../actions/favoritesActions'
 import { Link } from 'react-router-dom';
 
-const mapStateToProps = state => {
-    return {
-        appTitle: state.appTitle
-    }
-}
+
 
 const MovieHeader = (props) => {
-    const displayFavorites = true;
+    const { displayFavorites } = props;
     
 
 
@@ -28,4 +25,11 @@ const MovieHeader = (props) => {
     </div>);
 }
 
-export default connect(mapStateToProps, {addMovie})(MovieHeader);
+const mapStateToProps = state => {
+    return {
+        appTitle: state.movieReducer.appTitle,
+        displayFavorites: state.favoritesReducer.displayFavorites
+    }
+}
+
+export default connect(mapStateToProps)(MovieHeader);
